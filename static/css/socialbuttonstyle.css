@@ -1,0 +1,87 @@
+.border_bottom_btn {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+.border_bottom_btn:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+.border_bottom_btn::after {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+.border_bottom_btn:hover::after {
+  bottom: -4px;
+  opacity: 1;
+  visibility: visible;
+}
+.btn-sticky {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #f7552d;/*左線*/
+  color: #080201;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+.btn-sticky:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+.btn-square-shadow {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #244da5;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 2px #eef2f8;
+  border-radius: 3px;
+}
+.btn-square-shadow:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
+.btn-flat-vertical-border {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-left: solid 4px #e1f3ff;
+  border-right: solid 4px #e1f3ff;
+  color: #FFF;
+  background: #244da5;
+  transition: .4s;
+}
+
+.btn-flat-vertical-border:hover {
+  background: #e1f3ff;
+  font-weight: bold;
+  border-left: solid 20px #244da5;
+  border-right: solid 20px #668ad8;
+  color: #151616;
+}
+.btn-stitch {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+  border: dashed 1px #FFF;
+}
