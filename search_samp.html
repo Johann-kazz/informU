@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Search Sample</title>
+          
+        <!-- Bootstrap core CSS --><!-- file:///C:\Users\Noname-PC\Desktop\検索システム/-->
+        <link href=".\static\css\bootstrap.min.css" rel="stylesheet">
+        <!-- Fas CSS Font Awesome-->
+        <link href=".\static\css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap用JavaScriptの読み込み -->
+        <script src=".\static\js\jquery-3.6.0.slim.min.js"></script>
+        <script src=".\static\js\popper.min.js"></script>
+        <script src=".\static\js\bootstrap.bundle.min.js"></script>
+    </head>
+    <body >
+    <!--上部MENUバー-->
+    <div class="b-example-divider"></div>
+    <header class="p-3 bg-primary text-white">
+        <div class="container col-sm-10">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li class="nav-link px-2 text-white">menu:</li>
+                    <li><a href="search_samp.html" class="nav-link px-2 text-white">Top</a></li>
+                    <li><a href="account_login.html" class="nav-link px-2 text-white">Account</a></li> 
+                    <li><a href="owner_comment.html" class="nav-link px-2 text-white">新規登録</a></li>
+                    <li><a href="new_post.html" class="nav-link px-2 text-white">報告書</a></li>  
+                    <li><a href="#" class="nav-link px-2 text-white">HELP</a></li>  
+                </ul>
+            </div>
+        </div>
+    </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-sm-3 bg-secondary2 text-white pb-2">
+                    ナビゲーションバー
+                    <hr>
+                    <table>
+                        <tr><th>login user: </th><th></th><th></th></tr>
+                        <tr><td>           </td><td class="text-right">"admin"</td>
+                        <td class="text-right">
+                            <a href="/admin/logout?next=#" class=" px-2 text-white">
+                                <button class="btn btn-danger btn-sm">logout</button>
+                            </a>
+                        </td></tr>
+                    </table>
+                    
+                    <ul>
+                        <li>1-1</li>
+                        <li>1-2</li>
+                    </ul>
+                    <hr>
+                    <!--Search Box-->
+                    <form action="#" method="post">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="4Akv0hWzZ3Tv56sF5u5N6k0RgBVHh7uVJsakvg7LSgdO2n95so3N6VLrbqPsduvH">
+                        <div class="input-group m-2">
+                            <div class="form-outline">
+                                <input type="hidden" class="form-control" name="mode" value="__search_form__">
+                                <tr><th><label for="id_search"></label></th><td><input type="text" name="search" maxlength="100" required id="id_search"></td></tr>
+                                <button class="btn btn-primary btn-sm"
+                                        data-toggle="popover"
+                                        title="検索ボタン"
+                                        data-content="検索したい文字を入力してボタンを押してください。"
+                                        data-placement="right">
+                                    <i class="fas fa-search"></i>
+                                </button>    
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        検索条件:STATUS
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" checked><!--id="flexSwitchCheckDefault"-->
+                        <label class="form-check-label" >Open</label><!-- for="flexSwitchCheckDefault"-->
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" ><!--id="flexSwitchCheckDefault"-->
+                        <label class="form-check-label" >Close</label><!-- for="flexSwitchCheckDefault"-->
+                    </div>
+                    <hr>
+                    <!-- check Box -->
+                    <!-- check box selectなどは "django_appプロジェクトのhelloアプリ[form.py]参照"-->
+                    <p>検索元を以下から選択ください!</p>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" ><!--id="flexSwitchCheckDefault"-->
+                        <label class="form-check-label" >すべて検索</label><!-- for="flexSwitchCheckDefault"-->
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">船主コメント</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">船主仕様</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">船主要望</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+                        <label class="form-check-label" for="flexSwitchCheckDisabled">船級コメント</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">船級ルール</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">過去の不具合報告</label>
+                    </div>
+                    <hr>
+                    <!--googl Search Box-->
+                    <form action="#" method="post">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="4Akv0hWzZ3Tv56sF5u5N6k0RgBVHh7uVJsakvg7LSgdO2n95so3N6VLrbqPsduvH">
+                        <div class="input-group m-2">
+                            <div class="form-outline">
+                                <input type="hidden" class="form-control" name="mode" value="__search_form__">
+                                <tr><th><label for="id_search">
+                                    <img src=".\templates\images\googlelogo_color_92x30dp.png"  
+                                    width="40%" height="40%" class="img-fluid shadow" alt=""/>
+                                </label></th><td><input type="text" name="search" maxlength="100" required id="id_search"></td></tr>
+                                <button class="btn btn-primary btn-sm"
+                                        data-toggle="popover"
+                                        title="検索ボタン"
+                                        data-content="検索したい文字を入力してボタンを押してください。"
+                                        data-placement="right">
+                                    <i class="fas fa-search"></i>
+                                </button>    
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Main Contents -->
+                <div class="col-sm-9">
+                    <p class="font-weight-bold">サンプルのため検索はできません</p>
+                    <p>※以下の内容は、サンプルとして添付ファイル"E-0111-R01 PROCEDUE OF ON-BOARD TEST FOR A.C. GENERATOR(発電機試験方案)(E-080).xls"が検索結果として表示されています。</p>
+                    <p>Link タブに今後の課題等を記載しています.</p>
+                    <p class="card-text">検索結果(2)</p><!-- Database count文　-->
+                    
+                    <!-- TAB Contents -->
+                    <ul class="nav nav-tabs">
+                        <!-- TAB1 -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#owner-comments" data-bs-toggle="tab">船主コメント</a>
+                        </li>
+                        <!-- TAB2 DropDown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">船主仕様</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#spec_nyk" data-bs-toggle="tab">NYK</a></li>
+                                <li><a class="dropdown-item" href="#spec_kline" data-bs-toggle="tab">K-Line</a></li>
+                                <li><a class="dropdown-item" href="#spec_mol" data-bs-toggle="tab">MOL</a></li>
+                            </ul>
+                        </li>
+                        <!-- TAB3 -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#owner-request" data-bs-toggle="tab">船主要望</a>
+                        </li>
+                        <!-- TAB4 -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#class-comment" data-bs-toggle="tab">船級コメント</a>
+                        </li>
+                        <!-- TAB5 DropDown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">船級</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#class_nk" data-bs-toggle="tab">NK</a></li>
+                                <li><a class="dropdown-item" href="#class_lr" data-bs-toggle="tab">LR</a></li>
+                                <li><a class="dropdown-item" href="#class_bv" data-bs-toggle="tab">BV</a></li>
+                                <li><a class="dropdown-item" href="#class_abs" data-bs-toggle="tab">ABS</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#jg" data-bs-toggle="tab">JG</a></li>
+                            </ul>
+                        </li>
+                        <!-- TAB3 -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#raw_opinions" data-bs-toggle="tab">過去の不具合報告</a>
+                        </li>
+                        <!-- TAB3 -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Link" data-bs-toggle="tab">Link</a>
+                        </li>
+                        <!-- TAB4 Disable -->
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" data-bs-toggle="tab" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <!-- TAB 内容-->
+                    <div class="tab-content mt-2 pb-2 shadow-lg">
+                        <!-- TAB1 Owner Comment-->
+                        <div id="owner-comments" class="tab-pane active">
+                            <!-- sample comennt No.1-->
+                            <div class="card mt-1 pb-1 m-2 shadow" style="width: 98%;">
+                                <div class="card-header bg-primary text-white">
+                                    <table class="row">
+                                        <tr><th class="col-sm-1"></th><th class="col-sm-6"></th><th class="col-sm-2"></th>
+                                        <tr>
+                                            <td>Office: 丸亀</td><!-- Database　-->
+                                            <td>DWG Name: PROCEDUE OF ON-BOARD TEST FOR A.C. GENERATOR</td><!-- Database　-->
+                                            <td>DWG. No. E-0111-R01</td><!-- Database　-->
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="card-body">
+                                    <table class="card-text">
+                                        <tr>
+                                            <th>No.</th><td>1</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Page:</th><td></td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Status:</th><td>closed</td><!-- Database　-->
+                                        </tr>
+                                    </table>
+                                    <table class="card-text table table-resposive-sm ">
+                                        <tr><th class="col-sm-1"></th><th class="col-sm-4"></th><th class="col-sm-1"></th><th class="col-sm-4"></th><th class="col-sm-1"></th>
+                                        <tr>
+                                            <th></th><th>Owner Comment</th><th></th><th>Yard Reply</th><th></th>
+                                        </tr>
+                                        <tr>
+                                            <td class="d-flex align-items-start">1st:</td><!-- Database　-->
+                                            <td valign="top">
+                                            各試験での発電機の使用燃料は何になりますでしょうか。GOVERNOR TESTでは、GAS MODEでも試験は実施されますでしょうか。（2020/10/20　KL 小金澤）<!-- Database　-->
+                                            </td>
+                                            <td></td><!-- Database 添付ファイル-->
+                                            <td valign="top">GAS MODEでも行います。後日GAS MODE試験方案提出致します。(2020/11/28 田雁)</td><!-- Database　-->
+                                            <td><a href="#"><img src=".\templates\images\pdf.png" class="img-thumnbnail" style="width: 60%" alt=""/></a></td><!-- Database 添付ファイル　-->
+                                        </tr>
+                                        <tr>
+                                            <td class="d-flex align-items-start">2nd:</td><!-- Database　-->
+                                            <td valign="top">
+                                            拝承（了解）しました。よろしくお願いいたします。（2020/12/18　KL 小金澤）<!-- Database　-->
+                                            </td>
+                                            <td></td><!-- Database　-->
+                                            <td valign="top"></td><!-- Database　-->
+                                            <td></td><!-- Database 添付ファイル -->
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="card-footer bg-secondary">
+                                    <a href="#"><button class="btn btn-danger btn-sm text-white">Edit</button></a>
+                                </div>
+                            </div>
+                            <!-- sample comennt No.2-->
+                            <div class="card mt-1 pb-1 m-2 shadow" style="width: 98%;">
+                                <div class="card-header bg-primary text-white">
+                                    <div class="card-title">
+                                        <table>
+                                            <tr><th class="col-sm-1"></th><th class="col-sm-6"></th><th class="col-sm-2"></th>
+                                            <tr>
+                                                <td>Office: 丸亀</td><!-- Database　-->
+                                                <td>DWG Name: PROCEDUE OF ON-BOARD TEST FOR A.C. GENERATOR</td><!-- Database　-->
+                                                <td>DWG. No. E-0111-R01</td><!-- Database　-->
+                                            </tr>
+                                        </table>  
+                                    </div>                       
+                                </div>
+                                <div class="card-subtitle">
+                                    <table>
+                                        <tr>
+                                            <th>No.</th><td>2</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Page:</th><td>13</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Status:</th><td>closed</td><!-- Database　-->
+                                        </tr>
+                                    </table>  
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-columns">
+                                        <!-- 1st -->
+                                        <div class="card card-body">                                            
+                                            <table class="table table-responsible-sm">
+                                                <theader>
+                                                    <p class="card-text">1st:</p>
+                                                </theader>
+                                                <tbody>
+                                                    <!-- owner comment -->
+                                                    <tr><th class="col">Owner comment</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>Reverse power relay Main Switch Boardの図面では8%となっておりますが、
+                                                            今回10%となっている理由は何になりますでしょうか。（2020/10/20　KL 小金澤）</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- yard reply -->
+                                                    <tr><th class="col">Yard reply</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>設定値8%、ACB引き外し時間10秒にて行っております。(2020/11/28 田雁)</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- 2nd -->
+                                        <div class="card card-body">                                            
+                                            <table class="table table-responsible-sm">
+                                                <theader>
+                                                    <p class="card-text">2nd:</p>
+                                                </theader>
+                                                <tbody>
+                                                    <!-- owner comment -->
+                                                    <tr><th class="col">Owner comment</th><th class="col">添付ファイル</th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>拝承（了解）しました。（2020/12/18　KL 小金澤）</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- yard reply -->
+                                                    <tr><th class="col">Yard reply</th><th class="col">添付ファイル</th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-secondary">
+                                    <a href="#"><button class="btn btn-danger btn-sm text-white">Edit</button></a>
+                                </div>
+                            </div>
+                            <!-- sample comennt No.3-->
+                            <div class="card mt-1 pb-1 m-2 shadow" style="width: 98%;">
+                                <div class="card-header bg-primary text-white">
+                                    <div class="card-title">
+                                        <table>
+                                            <tr><th class="col-sm-1"></th><th class="col-sm-6"></th><th class="col-sm-2"></th>
+                                            <tr>
+                                                <td>Office: 丸亀</td><!-- Database　-->
+                                                <td>DWG Name: PROCEDUE OF ON-BOARD TEST FOR A.C. GENERATOR</td><!-- Database　-->
+                                                <td>DWG. No. E-0111-R01</td><!-- Database　-->
+                                            </tr>
+                                        </table>  
+                                    </div>                       
+                                </div>
+                                <div class="card-subtitle">
+                                    <table>
+                                        <tr>
+                                            <th>No.</th><td>3</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Page:</th><td>15</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Status:</th><td>closed</td><!-- Database　-->
+                                        </tr>
+                                    </table>  
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-columns">
+                                        <!-- 1st -->
+                                        <div class="card card-body">                                            
+                                            <table class="table table-responsible-sm">
+                                                <theader>
+                                                    <p class="card-text">1st:</p>
+                                                </theader>
+                                                <tbody>
+                                                    <!-- owner comment -->
+                                                    <tr><th class="col">Owner comment</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>Under voltage Trip Test for generator ACB（High voltage 90% ５sec）と記載されておりますが、
+                                                            （Under voltge 90% ）でしょうか。（2020/10/20　KL 小金澤）</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- yard reply -->
+                                                    <tr><th class="col">Yard reply</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>誤記削除致します。(2020/11/28 田雁)</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- 2nd -->
+                                        <div class="card card-body">                                            
+                                            <table class="table table-responsible-sm">
+                                                <theader>
+                                                    <p class="card-text">2nd:</p>
+                                                </theader>
+                                                <tbody>
+                                                    <!-- owner comment -->
+                                                    <tr><th class="col">Owner comment</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>拝承（了解）しました。（2020/12/18　KL 小金澤）</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- yard reply -->
+                                                    <tr><th class="col">Yard reply</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-secondary">
+                                    <a href="#"><button class="btn btn-danger btn-sm text-white">Edit</button></a>
+                                </div>
+                            </div>
+                            <!-- sample comennt No.4-->
+                            <div class="card mt-1 pb-1 m-2 shadow" style="width: 98%;">
+                                <div class="card-header bg-primary text-white">
+                                    <div class="card-title">
+                                        <table>
+                                            <tr><th class="col-sm-1"></th><th class="col-sm-6"></th><th class="col-sm-2"></th>
+                                            <tr>
+                                                <td>Office: 丸亀</td><!-- Database　-->
+                                                <td>DWG Name: PROCEDUE OF ON-BOARD TEST FOR A.C. GENERATOR</td><!-- Database　-->
+                                                <td>DWG. No. E-0111-R01</td><!-- Database　-->
+                                            </tr>
+                                        </table>  
+                                    </div>                       
+                                </div>
+                                <div class="card-subtitle">
+                                    <table>
+                                        <tr>
+                                            <th>No.</th><td>4</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Page:</th><td>24</td><!-- Database　-->
+                                            <th class="col-1"></th>
+                                            <th>Status:</th><td class="bg-danger text-light">open</td><!-- Database　-->
+                                        </tr>
+                                    </table>  
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-columns">
+                                        <!-- 1st -->
+                                        <div class="card card-body">                                            
+                                            <table class="table table-responsible-sm">
+                                                <theader>
+                                                    <p class="card-text">1st:</p>
+                                                </theader>
+                                                <tbody>
+                                                    <!-- owner comment -->
+                                                    <tr><th class="col">Owner comment</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>Main Switch Boadの図面では、ENG START COMMANDからSTART FAILまでの時間は記載されていなかったのですが、
+                                                            START FAILまで20秒、GENERAL FAILUREまで更に20秒要する事になっております。通常起動で回転数上昇まで20秒を
+                                                            要するものなのでしょうか、Failとなるまでの時間が長すぎるのではないかと考えます。Starting motor駆動で、
+                                                            100rpm程度までは直ぐに上昇するという理解です。SHOP TEST時にも説明があったかもしれませんが、
+                                                            再度確認しておきたく。（2020/10/20　KL 小金澤）</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- yard reply -->
+                                                    <tr><th class="col">Yard reply</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>ディーゼル機関とは異なり120rpmまでエアモータで昇速し、その後はガバナで徐々に回転数を上昇させる形になっており合計で
+                                                            約20秒程度要します。（パイロット燃料系統の急激な圧力上昇を防ぐためです。）
+                                                            現在は600rpmでENG. RUN信号を出力し、ACB投入までの条件をMSB側で監視されているかと思います。
+                                                            600rpmまでの到達が約15秒ですので、15秒+5秒（余裕分）で始動渋滞発報という考え方です。(ダイハツ)
+                                                            (2020/11/28 田雁)</td>
+                                                        <td><a href="#"><img src=".\templates\images\pdf.png" class="img-thumnbnail" style="width: 100%" alt=""/></a></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- 2nd -->
+                                        <div class="card card-body">                                            
+                                            <table class="table table-responsible-sm">
+                                                <theader>
+                                                    <p class="card-text">2nd:</p>
+                                                </theader>
+                                                <tbody>
+                                                    <!-- owner comment -->
+                                                    <tr><th class="col">Owner comment</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>定格回転数まで23秒かかる事、承知しました。
+                                                            BUS ABNORMALなどで、予備発電機を自動起動して運転機に代わって電力供給する場合等に懸念があると考えますが、
+                                                            通常船と比較して各Alarm値のDely timerの設定を短くするなどの必要があればご対応をお願いいたします。
+                                                            （発電機側で、始動時間の短縮を行う緊急起動は出来ないと伺っております）（2020/12/18　KL 小金澤）</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <!-- yard reply -->
+                                                    <tr><th class="col">Yard reply</th><th class="col"></th><th class="col">Remark</th><th class="col"></th></tr>
+                                                    <tr><td>添付MSBのフローチャートに明記しております、母線異常，
+                                                            高負荷検出遅延タイマー設定の変更で
+                                                            自動始動指令の前倒しは可能となります。
+                                                            但し遅延時間の短縮をした場合、大容量電動機の発停に依る
+                                                            負荷動揺に依り、誤検知が発生する可能性が高まります。
+
+                                                            また自動始動の前倒しが不可能なアイテムを下記しております。<br>
+                                                            ・火災(泡消火)<br>
+                                                            ・火災(局所消火)<br>
+                                                            ・BLACK OUT復旧<br>
+                                                            ・自動切換え<br>
+                                                            (2020/12/22 田雁)</td>
+                                                        <td><a href="#"><img src=".\templates\images\pdf.png" class="img-thumnbnail" style="width: 100%" alt=""/></a></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-secondary">
+                                    <a href="#"><button class="btn btn-danger btn-sm text-white">Edit</button></a>
+                                </div>                                
+                            </div>
+                        </div>
+
+                        <!-- TAB2 DropDown owner spec -->
+                        <div id="spec_nyk" class="tab-pane">
+                            <p>日本郵船の検索結果</P>
+                        </div>
+                        <div id="spec_kline" class="tab-pane">
+                            <p>川崎汽船の検索結果</P>
+                        </div>
+                        <div id="spec_mol" class="tab-pane">
+                            <p>三井商船の検索結果</P>
+                        </div>
+
+                        <!-- TAB3 Owner request-->
+                        <div id="owner-request" class="tab-pane">
+                            <p>船主要望の検索結果</P>
+                            <p>見た目は船主コメントと同じにする予定。<br>
+                                ※項目は別</P>
+                        </div>
+                        <!-- TAB4 Class comment-->
+                        <div id="class-comment" class="tab-pane">
+                            <p>船級コメントの検索結果</P>
+                            <p>見た目は船主コメントと同じにする予定。<br>
+                                ※項目は別 添付ファイルがいいかも</P>
+                        </div>
+                        <!-- TAB5 DropDown class -->
+                        <div id="class_nk" class="tab-pane">
+                            <p>Class NKの検索結果　PDF</P>
+                        </div>
+                        <div id="class_lr" class="tab-pane">
+                            <p>Class LRの検索結果　PDF</P>
+                        </div>
+                        <div id="class_bv" class="tab-pane">
+                            <p>Class BVの検索結果　PDF</P>
+                        </div>
+                        <div id="class_abs" class="tab-pane">
+                            <p>Class ABSの検索結果　PDF</P>
+                        </div>
+                        <div id="jg" class="tab-pane">
+                            <p>JGの検索結果　PDF</P>
+                        </div>
+                        <!-- TAB6 -->
+                        <div id="Link" class="tab-pane">
+                            画像サンプル
+                            <img src=".\templates\images\xhlCGbo.gif"  
+                                class="img-fluid shadow" alt=""/>
+                            <div>
+                            今後の課題や要望等、問題点控え覚書
+                            <li>検索結果の表示項目に追加は無いか？-->他部署・関連項目の表示をどのようにするか</li>
+                            <li>現在のデータテーブルのフォームはを"No."を基準にひとくくりとしている。</li>
+                                すなわち、コメントの質疑応答蘭内の{1st,2nd...}は同じ項目(行)にて登録している。<br>
+                                理由：検索結果を表示の際、検索文字をハイライト化し目立つようにして他の表示を非表示にしておきたいため<br>
+                                (1stで見つかった場合、2ndは非表示但し、クリックで表示可)<br>
+                                まだ作成中のため、今回はすべて表示<br>
+                                ハイライトも文字の色を変えるか・太文字にするか試してみる
+                            <li>とりあえず、表示は10件ごとにページ切り替えにする予定-->20件・50件毎に切り替えスイッチを後で作成</li>
+                            <li>検索結果の表示"No.1"でいいか？-->もっとわかりやすい表示方法を模索(PHPBBってのがかっこいい)</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </body>
+</html>
